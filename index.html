@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sketch</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+    <style>
+      /* 設定 iframe 容器置中 */
+      .iframe-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 80%;
+        border: 2px solid #000; /* 可選：設定邊框 */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 可選：增加陰影效果 */
+        z-index: 10; /* 確保 iframe 在海草動畫上方 */
+        background: #fff; /* 背景色，避免透明 */
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* 確保畫布在 iframe 背後 */
+      canvas {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+    <script>
+      // 將視窗移至螢幕正中間
+      function centerWindow() {
+        let screenWidth = window.screen.width;
+        let screenHeight = window.screen.height;
+        let windowWidth = window.outerWidth;
+        let windowHeight = window.outerHeight;
+
+        let centerX = (screenWidth - windowWidth) / 2;
+        let centerY = (screenHeight - windowHeight) / 2;
+
+        window.moveTo(centerX, centerY);
+      }
+
+      // 在頁面載入後執行
+      window.onload = centerWindow;
+    </script>
+  </head>
+
+  <body>
+    <!-- 中間的 iframe 容器 -->
+    <div class="iframe-container">
+      <iframe src="https://www.et.tku.edu.tw/" allow="fullscreen"></iframe>
+    </div>
+
+    <!-- 海草動畫 -->
+    <script src="sketch.js"></script>
+  </body>
+</html>
